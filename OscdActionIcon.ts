@@ -1,7 +1,10 @@
 import { css, html, LitElement, nothing, TemplateResult } from 'lit';
 import { property } from 'lit/decorators.js';
 
-import '@material/mwc-icon';
+import { ScopedElementsMixin } from '@open-wc/scoped-elements/lit-element.js';
+
+import { MdIcon } from '@scopedelement/material-web/icon/MdIcon.js';
+// import '@material/md-icon';
 
 /**
  * @slot action - May contain up to eight icon buttons.
@@ -16,19 +19,27 @@ import '@material/mwc-icon';
  * @summary A responsive container rendering actions in a header.
  * @tag oscd-action-icon
  */
-export class OscdActionIcon extends LitElement {
+export class OscdActionIcon extends ScopedElementsMixin(LitElement) {
+  static scopedElements = {
+    'md-icon': MdIcon,
+  };
+
   /** caption text, displayed in the header */
   @property({ type: String })
   label?: string;
+
   /** icon name, displayed unless the "icon" slot is filled */
   @property({ type: String })
   icon?: string;
+
   /** color header with secondary theme color while focus is within */
   @property({ type: Boolean })
   secondary = false;
+
   /** highlight pane with dotted outline */
   @property({ type: Boolean })
   highlighted = false;
+
   /** disables CSS adoption to action buttons */
   @property({ type: Boolean })
   hideActions = false;
@@ -40,7 +51,7 @@ export class OscdActionIcon extends LitElement {
   private renderIcon(): TemplateResult {
     return html`<span>
       <slot name="icon"
-        >${this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing}</slot
+        >${this.icon ? html`<md-icon>${this.icon}</md-icon>` : nothing}</slot
       ></span
     > `;
   }
@@ -63,7 +74,7 @@ export class OscdActionIcon extends LitElement {
     }
 
     ::slotted([slot='icon']),
-    mwc-icon {
+    md-icon {
       display: block;
       color: var(
         --oscd-action-icon-theme-on-surface,
@@ -79,11 +90,11 @@ export class OscdActionIcon extends LitElement {
       outline-width: 0px;
       width: 64px;
       height: 64px;
-      --mdc-icon-size: 64px;
+      --md-icon-size: 64px;
     }
 
     :host([secondary]) ::slotted([slot='icon']),
-    :host([secondary]) mwc-icon {
+    :host([secondary]) md-icon {
       outline-color: var(
         --oscd-action-icon-theme-secondary,
         var(--oscd-theme-secondary)
@@ -91,19 +102,19 @@ export class OscdActionIcon extends LitElement {
     }
 
     :host([highlighted]) ::slotted([slot='icon']),
-    :host([highlighted]) mwc-icon {
+    :host([highlighted]) md-icon {
       outline-style: dotted;
       outline-width: 2px;
     }
 
     :host(:focus-within) ::slotted([slot='icon']),
-    :host(:focus-within) mwc-icon {
+    :host(:focus-within) md-icon {
       outline-style: solid;
       outline-width: 4px;
     }
 
     :host(:focus-within:not([hideActions])) ::slotted([slot='icon']),
-    :host(:focus-within:not([hideActions])) mwc-icon {
+    :host(:focus-within:not([hideActions])) md-icon {
       transform: scale(0.8);
       transition: all 250ms linear;
       box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
@@ -111,7 +122,7 @@ export class OscdActionIcon extends LitElement {
     }
 
     ::slotted([slot='icon']:hover),
-    mwc-icon:hover {
+    md-icon:hover {
       outline-style: dashed;
       outline-width: 2px;
       transition: transform 200ms linear, box-shadow 250ms linear;
@@ -128,6 +139,8 @@ export class OscdActionIcon extends LitElement {
       pointer-events: none;
       z-index: 1;
       opacity: 0;
+      width: 48px;
+      height: 48px;
       margin-top: -56px;
       margin-left: 8px;
     }
