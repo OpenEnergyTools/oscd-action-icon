@@ -87,60 +87,6 @@ npm start
 To run a local development server that serves the basic demo located in `demo/index.html`
 
 
-## `src/oscd-action-icon.ts`:
-
-### class: `OscdActionIcon`, `oscd-action-icon`
-
-#### Superclass
-
-| Name         | Module | Package |
-| ------------ | ------ | ------- |
-| `LitElement` |        | lit     |
-
-#### Fields
-
-| Name          | Privacy | Type                  | Default | Description                                                   | Inherited From |
-| ------------- | ------- | --------------------- | ------- | ------------------------------------------------------------- | -------------- |
-| `label`       |         | `string \| undefined` |         | caption text, displayed in the header                         |                |
-| `icon`        |         | `string \| undefined` |         | icon name, displayed unless the "icon" slot is filled         |                |
-| `secondary`   |         | `boolean`             | `false` | color header with secondary theme color while focus is within |                |
-| `highlighted` |         | `boolean`             | `false` | highlight pane with dotted outline                            |                |
-| `hideActions` |         | `boolean`             | `false` | disables CSS adoption to action buttons                       |                |
-
-#### CSS Properties
-
-| Name                                  | Default                   | Description                       |
-| ------------------------------------- | ------------------------- | --------------------------------- |
-| `--oscd-action-icon-theme-primary`    | `--oscd-theme-primary`    | Border and hover color.           |
-| `--oscd-action-icon-theme-on-primary` | `--oscd-theme-on-primary` | Font color inside hover field.    |
-| `--oscd-action-icon-theme-secondary`  | `--oscd-theme-secondary`  | Secondary border and hover color. |
-| `--oscd-action-icon-theme-on-surface` | `--oscd-theme-on-surface` | Icon and label color.             |
-| `--oscd-action-icon-theme-font`       | `--oscd-theme-font`       | Font for label and hover text.    |
-
-#### Slots
-
-| Name     | Description                                                              |
-| -------- | ------------------------------------------------------------------------ |
-| `action` | May contain up to eight icon buttons.                                    |
-| `icon`   | If filled overrides the icon property.                                   |
-|          | The default slot will be rendered into the pane body in a single column. |
-
-<hr/>
-
-### Exports
-
-| Kind | Name             | Declaration    | Module                  | Package |
-| ---- | ---------------- | -------------- | ----------------------- | ------- |
-| `js` | `OscdActionIcon` | OscdActionIcon | src/oscd-action-icon.ts |         |
-
-## `src/OscdActionIcon.ts`:
-
-### Exports
-
-| Kind                        | Name               | Declaration    | Module                   | Package |
-| --------------------------- | ------------------ | -------------- | ------------------------ | ------- |
-| `custom-element-definition` | `oscd-action-icon` | OscdActionIcon | /src/oscd-action-icon.js |         |
-| `js`                        | `OscdActionIcon`   | OscdActionIcon | src/OscdActionIcon.ts    |         |
 
 
 &copy; 2023 Alliander N.V.
