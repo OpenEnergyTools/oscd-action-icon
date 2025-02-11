@@ -3,9 +3,9 @@
   "description": "Material web type action icon",
   "license": "Apache-2.0",
   "author": "Jakob Vogelsang",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "browser": "./dist/OscdActionIcon.js",
-  "module": "./dist/OscdActionIcon.js",
+  "main": "./dist/OscdActionIcon.js",
   "files": [
     "dist/**/*"
   ],
